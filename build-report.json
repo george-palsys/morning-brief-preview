@@ -1,0 +1,57 @@
+{
+  "mode": "production",
+  "basePath": "/morning-brief-preview/",
+  "days": [
+    {
+      "date": "2026-11-21",
+      "legacy": false
+    },
+    {
+      "date": "2026-11-20",
+      "legacy": false
+    },
+    {
+      "date": "2026-11-19",
+      "legacy": false
+    },
+    {
+      "date": "2026-11-19",
+      "legacy": true
+    }
+  ],
+  "productPages": [
+    "products/websphere-application-server.html",
+    "products/websphere-liberty.html",
+    "products/mq.html",
+    "products/instana.html",
+    "products/turbonomic.html",
+    "products/black-duck-sca.html",
+    "products/coverity.html",
+    "products/seeker.html",
+    "products/srm.html",
+    "products/neuvector.html",
+    "products/appscan.html",
+    "products/jboss-eap.html",
+    "products/cicd.html",
+    "products/concert.html",
+    "products/gcm.html",
+    "products/qse.html",
+    "products/vault.html",
+    "products/bob.html",
+    "products/openshift.html",
+    "products/3scale.html",
+    "products/jbcs-httpd.html",
+    "products/rancher-rke2.html",
+    "products/nkp.html",
+    "products/confluent-platform.html",
+    "products/palsys-one.html",
+    "products/cmc.html"
+  ],
+  "statusCounts": {
+    "有更新": 3,
+    "無更新": 21,
+    "無法確認": 1,
+    "無公開來源": 1
+  },
+  "warnings": []
+}
