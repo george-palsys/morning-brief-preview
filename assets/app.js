@@ -142,6 +142,17 @@ document.querySelector('#all').addEventListener('click', () => update(true));
 
 }
 /* Visual preview motion */
+const groupedDirectory = document.querySelector('.mb-directory');
+if (groupedDirectory && bar) {
+  const syncGroups = () => {
+    for (const group of groupedDirectory.tBodies) {
+      const heading = group.querySelector('tr.grp');
+      if (heading) heading.hidden = !group.querySelector('tr[data-status]:not([hidden])');
+    }
+  };
+  bar.addEventListener('input', syncGroups);
+  bar.addEventListener('click', syncGroups);
+}
 if (document.querySelector('.mb-motion-art')) {
   for (const image of document.querySelectorAll('.mb-art img')) {
     const hide = () => { image.closest('picture').hidden = true; };

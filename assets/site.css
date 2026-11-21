@@ -707,3 +707,5 @@ code{font-family:var(--mono);font-size:.92em;background:var(--wash);padding:1px 
  .d14 .empty-state{padding:24px}.d14 .notfound-actions{padding:20px}
  .d14 .actions{flex-direction:column;gap:8px}.d14 .actions a{width:100%}
 }
+
+.item-title:target{scroll-margin-top:96px;box-shadow:inset 4px 0 0 var(--accent);padding-inline-start:12px}
