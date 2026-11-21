@@ -10,8 +10,8 @@
 <ul>
 <li>版號：v3.6.2</li>
 <li>發布日：2026-11-18 19:55 UTC（台北時間 2026-11-19 03:55）</li>
-<li>重點變更：changelog 只有 Bug fixes 段落，包含 ApplicationSet 只 patch refresh annotation 而不整份改寫（#24378、#24647）；controller 在 manifest-generate-paths 沒有變更時保留 server-side diff cache（#30812）；sync 狀態為 Unknown 後略過 diff cache（#28722）；相依套件 dlclark/regexp2 由 v1.12.0 升到 v2.13.0（changelog 註明 <code><span class="cve-id">CVE-2026-77299</span></code>）；kustomize 的 ignoreMissingComponents 修正；三項 UI 修正。</li>
-<li>安全面：Argo CD 專案的 Security Advisories 頁最新一筆仍是 2026-10-07，沒有對應這一版的新公告。<code><span class="cve-id">CVE-2026-77299</span></code> 的嚴重度與細節我沒有查。</li>
+<li>重點變更：changelog 只有 Bug fixes 段落，包含 ApplicationSet 只 patch refresh annotation 而不整份改寫（#24378、#24647）；controller 在 manifest-generate-paths 沒有變更時保留 server-side diff cache（#30812）；sync 狀態為 Unknown 後略過 diff cache（#28722）；相依套件 dlclark/regexp2 由 v1.12.0 升到 v2.13.0（changelog 註明 <code>CVE-2026-77299</code>）；kustomize 的 ignoreMissingComponents 修正；三項 UI 修正。</li>
+<li>安全面：Argo CD 專案的 Security Advisories 頁最新一筆仍是 2026-10-07，沒有對應這一版的新公告。<code>CVE-2026-77299</code> 的嚴重度與細節我沒有查。</li>
 </ul>
 </li>
 <li class="impact"><span class="lead-in">對我們的影響：</span>用上游 Argo CD 3.6 的環境可排入例行升級。OpenShift GitOps 的版本由 Red Hat 另外發布，今天文件頁仍是 1.22，沒有變化。</li>
@@ -24,7 +24,7 @@
 <ul>
 <li>版號：v3.5.8</li>
 <li>發布日：2026-11-18 19:54 UTC（台北時間 2026-11-19 03:54）</li>
-<li>重點變更：ApplicationSet 只 patch refresh annotation；dlclark/regexp2 升到 v2.13.0（<code><span class="cve-id">CVE-2026-77299</span></code>）；AppProject destination 的 deny 規則（<code>!name</code>／<code>!server</code>）在正向符合時改為否決；兩項 UI 修正；相依更新 go-jose v4 4.1.4 到 4.1.6、otel v1.44.0 到 v1.46.0、Go 1.26.11。</li>
+<li>重點變更：ApplicationSet 只 patch refresh annotation；dlclark/regexp2 升到 v2.13.0（<code>CVE-2026-77299</code>）；AppProject destination 的 deny 規則（<code>!name</code>／<code>!server</code>）在正向符合時改為否決；兩項 UI 修正；相依更新 go-jose v4 4.1.4 到 4.1.6、otel v1.44.0 到 v1.46.0、Go 1.26.11。</li>
 <li>行為改變：AppProject destination deny 規則的判定有修正，用了 <code>!name</code> 或 <code>!server</code> 寫法的專案升級後要重新確認允許的部署目的地。</li>
 </ul>
 </li>
@@ -38,7 +38,7 @@
 <ul>
 <li>版號：v3.4.14</li>
 <li>發布日：2026-11-18 19:58 UTC（台北時間 2026-11-19 03:58）</li>
-<li>重點變更：dlclark/regexp2 升到 v2.13.0（<code><span class="cve-id">CVE-2026-77299</span></code>）；AppProject destination 的 deny 規則修正（與 v3.5.8 相同的修正移植到 3.4）；go-jose v4 4.1.4 到 4.1.6；Go 1.26.11；git-lfs v3.7.1 到 v3.8.1；gitops-engine 不再為每個叢集保留解碼後的 OpenAPI 文件（#30810）。</li>
+<li>重點變更：dlclark/regexp2 升到 v2.13.0（<code>CVE-2026-77299</code>）；AppProject destination 的 deny 規則修正（與 v3.5.8 相同的修正移植到 3.4）；go-jose v4 4.1.4 到 4.1.6；Go 1.26.11；git-lfs v3.7.1 到 v3.8.1；gitops-engine 不再為每個叢集保留解碼後的 OpenAPI 文件（#30810）。</li>
 </ul>
 </li>
 <li class="impact"><span class="lead-in">對我們的影響：</span>用上游 Argo CD 3.4 的環境可排入例行升級。</li>
@@ -69,7 +69,7 @@
 <li>這則是依「帶版本號的網址」規則回報：清單上的網址是 v2.12（該線最新為 v2.12.15），版本選單另有 v2.13、v2.14、v2.15，以及標示 Unreleased 的 v2.16。不是昨天之後才發布的版本。</li>
 <li>版號：v2.15.3（v2.15 線目前最新的修補版，Prime 版本）。</li>
 <li>發布日：頁面上沒有標示，發布日期未查到。</li>
-<li>重點變更：維護更新與錯誤修正；安全修正包含 meta proxy 端點的目的地 allowlist 檢查位置錯誤（已登入使用者可讓 Rancher server 對內部服務發送請求並取得回應，<code><span class="cve-id">CVE-2026-88809</span></code>），以及 GlobalRole 的 inheritedNamespacedRules 欄位未做權限提升檢查。Rancher 的 CVE 清單頁上 <code><span class="cve-id">CVE-2026-88809</span></code> 的日期是 2026-10-29。</li>
+<li>重點變更：維護更新與錯誤修正；安全修正包含 meta proxy 端點的目的地 allowlist 檢查位置錯誤（已登入使用者可讓 Rancher server 對內部服務發送請求並取得回應，<code>CVE-2026-88809</code>），以及 GlobalRole 的 inheritedNamespacedRules 欄位未做權限提升檢查。Rancher 的 CVE 清單頁上 <code>CVE-2026-88809</code> 的日期是 2026-10-29。</li>
 <li>升級注意：使用 AD FS 的環境升級到 v2.10.1 以後可能需要手動更新 Relying Party Trust（頁面開頭的固定提醒）。</li>
 </ul>
 </li>

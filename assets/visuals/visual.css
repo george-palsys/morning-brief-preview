@@ -143,8 +143,6 @@ td .cve-id{white-space:normal}
 @media(min-width:1024px) and (max-width:1180px){
  .mb-home-feature .facts{grid-template-columns:repeat(3,auto);justify-content:space-between;column-gap:12px}
  .mb-home-feature .facts dd{white-space:nowrap}
- .metric-panel--wide{justify-content:space-between}
- .metric-panel--wide .metric-link{margin-top:0}
 }
 @media(max-width:1023px){
  .mb-news .section-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
@@ -160,3 +158,19 @@ td .cve-id{white-space:normal}
 :root[data-theme=dark] .menu__panel{box-shadow:none}
 @media(prefers-color-scheme:dark){:root:not([data-theme=light]) .mb-art{border:1px solid var(--line)}:root:not([data-theme=light]) .menu__panel{box-shadow:none}}
 .theme-toggle{min-height:44px;min-width:44px;padding:0 8px;font-size:12px;white-space:nowrap}
+
+/* Fixed legend-to-link gap, independent of hero height and adjacent breakpoints. */
+@media(min-width:1024px){
+ .metric-panel--wide{align-self:start}
+ .metric-panel--wide .metric-link{margin-top:60px}
+}
+.mb-signal-flow{display:grid;gap:16px;align-content:start;min-width:0}
+@media(max-width:640px){.mb-signal-flow{gap:12px}}
+
+/* Allow the brand to share narrow headers with both 44px controls. */
+@media(max-width:640px){
+ .header-inner .brand{flex-shrink:1;min-width:0}
+ .brand__emblem,.header-tool{flex-shrink:0}
+ .brand__text{min-width:0}
+ .brand__text small{overflow-wrap:anywhere}
+}
