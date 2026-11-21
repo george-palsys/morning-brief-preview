@@ -1,6 +1,6 @@
 {
   "mode": "production",
-  "basePath": "/morning-brief-preview/",
+  "basePath": "/morning-brief-archive/",
   "days": [
     {
       "date": "2026-11-21",

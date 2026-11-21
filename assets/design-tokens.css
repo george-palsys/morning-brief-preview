@@ -1,14 +1,16 @@
 /* design-tokens.css — Morning Brief 視覺改版第二輪，方案 A 與 B 共用。
    內容：設計 token、重設、基礎排版、焦點、共用元件（狀態徽章、嚴重度徽章、按鈕、徽章）。
-   規則：無外部字型、無 CDN、無 @import、無 inline style 依賴。亮色單一主題（基準版無深色，深色模式待 George 決定）。
+   規則：無外部字型、無 CDN、無 @import、無 inline style 依賴。亮／深色雙主題，見第四輪實作紀錄。
    所有「文字色／底色」組合的對比值已用 WCAG 2.x 公式計算，見 design-spec.md §3。 */
 
 :root{
+ --selected-bg:#151c2b;--selected-ink:#ffffff;--selected-border:#7c8797;
+  --selection:#d5defc;
   /* D14 extensions: the approved base tokens below are unchanged. */
   --factbox-bg:#f9fafc;
   --directory-head-bg:#f0f2f6;
   --source-warning-bg:#fff4d6;
-  color-scheme: light;
+  color-scheme: light dark;
 
   /* ---- 色彩：中性 ---- */
   --ink:#151c2b;          /* 主文字 */
@@ -92,14 +94,14 @@ button,input,summary{font:inherit;color:inherit}
 button,summary{cursor:pointer}
 table{border-collapse:collapse;width:100%}
 th{text-align:left;font-weight:var(--w-bold)}
-::selection{background:#d5defc}
+::selection{background:var(--selection);color:var(--ink)}
 
 /* 焦點：所有可互動元件。淺底用 accent，深底改萊姆綠；3px 外框 + 3px 偏移 */
 :focus-visible{outline:var(--bw-focus) solid var(--accent);outline-offset:3px;border-radius:4px}
 .on-dark :focus-visible,.dark :focus-visible{outline-color:var(--mint)}
 
 .sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.skip-link{position:absolute;left:var(--sp-4);top:-60px;z-index:100;background:var(--ink-deep);color:#fff;padding:var(--sp-3) var(--sp-4);border-radius:var(--r-sm);min-height:var(--tap);display:inline-flex;align-items:center}
+.skip-link{position:absolute;left:var(--sp-4);top:-60px;z-index:100;background:var(--ink-deep);color:var(--on-dark);padding:var(--sp-3) var(--sp-4);border-radius:var(--r-sm);min-height:var(--tap);display:inline-flex;align-items:center}
 .skip-link:focus{top:var(--sp-3);text-decoration:none}
 [hidden]{display:none!important}
 
@@ -124,13 +126,13 @@ th{text-align:left;font-weight:var(--w-bold)}
 /* ===== 共用元件：按鈕與膠囊 ===== */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-2);min-height:var(--tap);padding:0 var(--sp-5);border-radius:var(--r-md);border:1px solid var(--line-strong);background:var(--paper);color:var(--ink);font-size:var(--fs-14);font-weight:var(--w-bold);text-decoration:none;transition:background var(--t-fast),color var(--t-fast),border-color var(--t-fast)}
 .btn:hover{text-decoration:none;border-color:var(--accent);color:var(--accent)}
-.btn--primary{background:var(--ink-deep);border-color:var(--ink-deep);color:#fff}
-.btn--primary:hover{background:var(--accent);border-color:var(--accent);color:#fff}
-.btn--light{background:#fff;border-color:#fff;color:var(--ink-deep)}
+.btn--primary{background:var(--ink-deep);border-color:var(--ink-deep);color:var(--on-dark)}
+.btn--primary:hover{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.btn--light{background:#fff;border-color:var(--on-dark);color:var(--ink-deep)}
 .btn--light:hover{background:var(--mint);border-color:var(--mint);color:var(--on-mint)}
 .chip{display:inline-flex;align-items:center;gap:6px;min-height:var(--tap);padding:0 var(--sp-4);border-radius:var(--r-pill);border:1px solid var(--line-strong);background:var(--paper);color:var(--ink-2);font-size:var(--fs-14);font-weight:var(--w-medium);text-decoration:none}
 .chip:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
-.chip[aria-pressed="true"],.chip[aria-current="true"]{background:var(--ink-deep);border-color:var(--ink-deep);color:#fff}
+.chip[aria-pressed="true"],.chip[aria-current="true"]{background:var(--ink-deep);border-color:var(--ink-deep);color:var(--on-dark)}
 .chip__n{font-family:var(--mono);font-size:var(--fs-13)}
 
 /* ===== 共用元件：欄位 ===== */
@@ -159,3 +161,7 @@ th{text-align:left;font-weight:var(--w-bold)}
   *,*::before,*::after{transition:none!important;animation:none!important}
 }
 @media print{.skip-link{display:none}}
+
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{--ink:#e8edf5;--canvas:#0e1420;--paper:#151d2c;--wash:#1c2638;--muted:#a3b0c4;--subtle:#97a5ba;--faded:#8f9db3;--accent:#9db3ff;--mint:#c9f36b;--ink-2:#c3cfe0;--line:#344157;--line-strong:#7a879b;--accent-soft:#1d2b5c;--factbox-bg:#111a28;--directory-head-bg:#1a2436;--source-warning-bg:#3a2b08;--ink-deep:#060b16;--on-mint:#0d2130;--on-dark:#ffffff;--on-dark-2:#c3cfe0;--on-dark-3:#a9b7cc;--dark-line:#5c6c84;--dark-rule:#2c3a52;--st-updated:#a9bcff;--st-updated-bg:#1d2b5c;--st-unchanged:#c0cadb;--st-unchanged-bg:#1c2638;--st-unknown:#f5c968;--st-unknown-bg:#3a2b08;--st-nosource:#c0cadb;--st-nosource-bg:#151d2c;--meter-updated:#9db3ff;--meter-unchanged:#7a879b;--meter-unknown:#e0a030;--meter-nosource:#a3b0c4;--sev-critical:#ffa59b;--sev-critical-bg:#3d1714;--expl-poc:#ffb27a;--expl-poc-bg:#3b210c;--expl-confirmed:#2b0502;--expl-confirmed-bg:#ff8a80;--selection:#2d4296;--selected-bg:#1d2b5c;--selected-ink:#9db3ff;--selected-border:#9db3ff;color-scheme:dark;}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--ink:#e8edf5;--canvas:#0e1420;--paper:#151d2c;--wash:#1c2638;--muted:#a3b0c4;--subtle:#97a5ba;--faded:#8f9db3;--accent:#9db3ff;--mint:#c9f36b;--ink-2:#c3cfe0;--line:#344157;--line-strong:#7a879b;--accent-soft:#1d2b5c;--factbox-bg:#111a28;--directory-head-bg:#1a2436;--source-warning-bg:#3a2b08;--ink-deep:#060b16;--on-mint:#0d2130;--on-dark:#ffffff;--on-dark-2:#c3cfe0;--on-dark-3:#a9b7cc;--dark-line:#5c6c84;--dark-rule:#2c3a52;--st-updated:#a9bcff;--st-updated-bg:#1d2b5c;--st-unchanged:#c0cadb;--st-unchanged-bg:#1c2638;--st-unknown:#f5c968;--st-unknown-bg:#3a2b08;--st-nosource:#c0cadb;--st-nosource-bg:#151d2c;--meter-updated:#9db3ff;--meter-unchanged:#7a879b;--meter-unknown:#e0a030;--meter-nosource:#a3b0c4;--sev-critical:#ffa59b;--sev-critical-bg:#3d1714;--expl-poc:#ffb27a;--expl-poc-bg:#3b210c;--expl-confirmed:#2b0502;--expl-confirmed-bg:#ff8a80;--selection:#2d4296;--selected-bg:#1d2b5c;--selected-ink:#9db3ff;--selected-border:#9db3ff;color-scheme:dark;}}
