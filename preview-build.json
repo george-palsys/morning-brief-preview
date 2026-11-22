@@ -1,0 +1,13 @@
+{
+  "sourceRepository": "george-palsys/morning-brief-archive",
+  "sourceCommit": "ccf2cf5b9f85c1724444d54fb31f672696460003",
+  "command": "npm run build -- --base-path /morning-brief-preview/ --visual-preview --output ../build-preview",
+  "basePath": "/morning-brief-preview/",
+  "visualPreview": true,
+  "htmlPages": 61,
+  "verification": {
+    "archivePaths404": 0,
+    "previewPaths404": 30,
+    "noindexPages": 61
+  }
+}

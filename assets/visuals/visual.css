@@ -174,3 +174,28 @@ td .cve-id{white-space:normal}
  .brand__text{min-width:0}
  .brand__text small{overflow-wrap:anywhere}
 }
+
+/* r4 review: keep CVE heading tokens and their closing punctuation together. */
+.d14 .item-title code{white-space:nowrap;overflow-wrap:normal;word-break:normal}
+.d14 .prose code.cve-code{white-space:nowrap;overflow-wrap:normal;word-break:normal}
+/* Only exact single identifiers are locked, including tables; compound code still wraps. */
+.feature h2 .mb-cve-group{display:inline-block;white-space:nowrap}
+/* Keep the original headline font; reserve enough text width for the CVE group. */
+@media(min-width:1024px) and (max-width:1280px){
+ .mb-home-feature{grid-template-columns:minmax(0,1fr) minmax(0,22%)}
+}
+/* Reuse the contrast-checked selected-control tokens in both themes. */
+.chip[aria-pressed="true"],.chip[aria-current="true"]{
+ background:var(--selected-bg);color:var(--selected-ink);border-color:var(--selected-border)
+}
+.d14 .v4-counts li{align-items:stretch}
+.d14 .day-list>li>a{flex-wrap:wrap;column-gap:8px}
+.d14 .day-list .day-edition{white-space:nowrap}
+@media(min-width:681px){
+ .d14 .day-list>li{grid-template-columns:minmax(240px,34%) minmax(0,1fr)}
+}
+
+/* Optional A4: only the vertical legend-to-link gap, not the 16px hero grid gap. */
+@media(min-width:1024px) and (max-width:1180px){
+ .metric-panel--wide .metric-link{margin-top:24px}
+}

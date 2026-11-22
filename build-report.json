@@ -1,7 +1,11 @@
 {
   "mode": "production",
-  "basePath": "/morning-brief-archive/",
+  "basePath": "/morning-brief-preview/",
   "days": [
+    {
+      "date": "2026-11-22",
+      "legacy": false
+    },
     {
       "date": "2026-11-21",
       "legacy": false
@@ -48,8 +52,8 @@
     "products/cmc.html"
   ],
   "statusCounts": {
-    "有更新": 3,
-    "無更新": 21,
+    "有更新": 4,
+    "無更新": 20,
     "無法確認": 1,
     "無公開來源": 1
   },
